@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const DtsCreator = require('typed-css-modules');
 const prettier = require('../../scripts/prettier');
 
-const creator = new DtsCreator();
+const creator = DtsCreator.hasOwnProperty('default') ? new DtsCreator.default() : new DtsCreator();
 
 module.exports = async function moduleLoader(source, map) {
   if (this.cacheable) {
